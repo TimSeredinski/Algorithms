@@ -2,13 +2,27 @@ package by.bsu.seredinski;
 
 public class Algorithms {
 
-    public static int[] quickSort(int[] mass, int start, int end) {
-        int i = start;
-        int j = end;
-        if (i >= j) {
-            return mass;
+    public static void quickSort(int[] mass, int start, int end) {
+        if (start >= end) {
+            return;
         }
-        int curr = i - (i - j) / 2;
+        int curr = start - (start - end) / 2;
+        curr = getCurr(mass, start, end, curr);
+        sort(mass, start, curr);
+        sort(mass, curr + 1, end);
+    }
+
+    public static void clearQuickSort(int[] mass, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int curr = start - (start - end) / 2;
+        curr = getCurr(mass, start, end, curr);
+        clearQuickSort(mass, start, curr);
+        clearQuickSort(mass, curr + 1, end);
+    }
+
+    private static int getCurr(int[] mass, int i, int j, int curr) {
         while (i < j) {
             while ((mass[i] <= mass[curr]) && i < curr) {
                 i++;
@@ -28,14 +42,12 @@ public class Algorithms {
                 }
             }
         }
-        sort(mass, start, curr);
-        sort(mass, curr + 1, end);
-        return mass;
+        return curr;
     }
 
-    public static int[] insertIntoSort(int[] mass) {
+    public static void insertionSort(int[] mass, int start, int end) {
         int temp, j;
-        for (int i = 0; i < mass.length - 1; i++) {
+        for (int i = start; i < end; i++) {
             if (mass[i] > mass[i + 1]) {
                 temp = mass[i + 1];
                 mass[i + 1] = mass[i];
@@ -47,13 +59,29 @@ public class Algorithms {
                 mass[j] = temp;
             }
         }
-        return mass;
     }
+//public static void insertionSort(int[] array) {
+//    int current, j;
+//
+//    for (int i = 1; i < array.length; ++i) {
+//        current = array[i];
+//        j = i - 1;
+//
+//        while (j >= 0 && array[j] > current) {
+//            array[j + 1] = array[j];
+//            j--;
+//        }
+//
+//        array[j + 1] = current;
+//    }
+//}
 
     public static void sort(int[] mass, int start, int end) {
-        if (mass.length > Main.n) {
+        if ((end-start) > Main.n) {
             quickSort(mass, start, end);
-        } else
-            insertIntoSort(mass);
+        } else {
+            insertionSort(mass, start, end);
+        }
     }
+
 }
