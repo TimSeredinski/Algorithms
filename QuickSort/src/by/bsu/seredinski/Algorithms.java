@@ -47,37 +47,20 @@ public class Algorithms {
 
     public static void insertionSort(int[] mass, int start, int end) {
         int temp, j;
-        for (int i = start; i < end; i++) {
-            if (mass[i] > mass[i + 1]) {
-                temp = mass[i + 1];
-                mass[i + 1] = mass[i];
-                j = i;
-                while (j > 0 && temp < mass[j - 1]) {
-                    mass[j] = mass[j - 1];
-                    j--;
-                }
-                mass[j] = temp;
+        for (int i = start; i < end - start; i++) {
+            temp = mass[i];
+            j = i;
+            while (j > start && mass[j - 1] > temp) {
+                mass[j] = mass[j - 1];
+                j--;
             }
+            mass[j] = temp;
         }
     }
-//public static void insertionSort(int[] array) {
-//    int current, j;
-//
-//    for (int i = 1; i < array.length; ++i) {
-//        current = array[i];
-//        j = i - 1;
-//
-//        while (j >= 0 && array[j] > current) {
-//            array[j + 1] = array[j];
-//            j--;
-//        }
-//
-//        array[j + 1] = current;
-//    }
-//}
+
 
     public static void sort(int[] mass, int start, int end) {
-        if ((end-start) > Main.n) {
+        if ((end - start) > Main.n) {
             quickSort(mass, start, end);
         } else {
             insertionSort(mass, start, end);

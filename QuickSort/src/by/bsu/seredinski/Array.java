@@ -19,7 +19,7 @@ public class Array {
     }
 
     public static void writeToFile(int[][] array) throws IOException {
-        FileWriter fileWriter = new FileWriter(new File("result.txt"));
+        FileWriter fileWriter = new FileWriter(new File("Text.txt"));
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
                 fileWriter.write(array[i][j] + " ");
