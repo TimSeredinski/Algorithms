@@ -34,7 +34,10 @@ public class Main {
             avgHybridSort /= mass1.length;
 
             if (avgHybridSort < avgQuickSort) {
+                Array.writeToFile(mass1);
                 System.out.println("n = " + n + " гибридная сортировка быстрее на " + (avgQuickSort - avgHybridSort) + " наносекунд");
+                Array.writeResult(n, (avgQuickSort - avgHybridSort));
+                break;
             } else {
                 System.out.println("n = " + n + " " + (avgHybridSort - avgQuickSort));
             }

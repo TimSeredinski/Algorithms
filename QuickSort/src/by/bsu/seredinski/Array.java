@@ -28,6 +28,12 @@ public class Array {
         }
     }
 
+    public static void writeResult(int n, long time) throws IOException {
+        FileWriter fileWriter = new FileWriter(new File("result.txt"));
+        fileWriter.write("Гибрибдая сортировка быстрее при n = " + n + " на " + time + " наносекунд");
+        fileWriter.flush();
+    }
+
     public static int[][] readFromFile() throws FileNotFoundException {
         Scanner scannerFile = new Scanner(new File("Text.txt"));
         int[][] mass = new int[50][100000];

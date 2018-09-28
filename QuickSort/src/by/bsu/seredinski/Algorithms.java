@@ -2,14 +2,13 @@ package by.bsu.seredinski;
 
 public class Algorithms {
 
-    public static void quickSort(int[] mass, int start, int end) {
-        if (start >= end) {
-            return;
+    public static int quickSort(int[] mass, int start, int end) {
+        if (start < end) {
+            int curr = start - (start - end) / 2;
+            curr = getCurr(mass, start, end, curr);
+            return curr;
         }
-        int curr = start - (start - end) / 2;
-        curr = getCurr(mass, start, end, curr);
-        sort(mass, start, curr);
-        sort(mass, curr + 1, end);
+        return 0;
     }
 
     public static void clearQuickSort(int[] mass, int start, int end) {
@@ -46,22 +45,23 @@ public class Algorithms {
     }
 
     public static void insertionSort(int[] mass, int start, int end) {
-        int temp, j;
-        for (int i = start; i < end - start; i++) {
-            temp = mass[i];
-            j = i;
-            while (j > start && mass[j - 1] > temp) {
-                mass[j] = mass[j - 1];
-                j--;
+        for (int i = start; i < end; i++) {
+            for (int j = i + 1; j > start; j--) {
+                if (mass[j - 1] > mass[j]) {
+                    int tmp = mass[j - 1];
+                    mass[j - 1] = mass[j];
+                    mass[j] = tmp;
+                }
             }
-            mass[j] = temp;
         }
     }
 
 
     public static void sort(int[] mass, int start, int end) {
         if ((end - start) > Main.n) {
-            quickSort(mass, start, end);
+            int curr = quickSort(mass, start, end);
+            sort(mass, start, curr);
+            sort(mass, curr + 1, end);
         } else {
             insertionSort(mass, start, end);
         }
