@@ -2,6 +2,8 @@ package by.bsu.seredinski;
 
 public class Main {
 
+    public static final int size = 1024;
+
     public static void main(String[] args) {
 
         int[][] array = Array.createArray();
@@ -25,7 +27,7 @@ public class Main {
     private static void findMaxCountOfIteration(int array[][]) {
         int max = 0;
         for (int i = 0; i < 50; i++) {
-            Quadratic hashTable = new Quadratic(1024);
+            Quadratic hashTable = new Quadratic(size);
             hashTable.insert(array[i]);
             if (max < Quadratic.maxI) {
                 max = Quadratic.maxI;

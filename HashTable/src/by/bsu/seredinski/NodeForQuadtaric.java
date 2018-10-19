@@ -6,8 +6,8 @@ public class NodeForQuadtaric {
     int key;
 
     public NodeForQuadtaric() {
-        element = 0;
-        key = 0;
+        element = -1;
+        key = -1;
     }
 
     public NodeForQuadtaric(int element, int key) {

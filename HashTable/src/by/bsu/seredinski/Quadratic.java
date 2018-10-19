@@ -13,8 +13,8 @@ public class Quadratic {
         maxI = 1;
     }
 
-    private int doHash(int value, int i) {
-        return (value % 829 + i * i) % array.length;
+    public int doHash(int value) {
+        return (int) (((value % 829) * (Math.sqrt(5) - 1) / 2) % 1 * Main.size);
     }
 
     public void insert(int[] arr) {
@@ -24,26 +24,35 @@ public class Quadratic {
     }
 
     private void insert(int value) {
-        int i = 1, a = value;
-        int index = doHash(value, i);
-        while (array[index].getElement() != 0) {
+        int i = 1;
+        int index = doHash(value);
+        int newIndex = index;
+        while (array[newIndex].getElement() != -1 && array[newIndex].getElement() != value) {
+            newIndex = (index + i * i) % Main.size;
             i++;
-            index = doHash(a, i);
-            a = index;
         }
-        if (array[index].getElement() == 0) {
-            array[index].setElement(value);
-            array[index].setKey(index);
+        if (array[newIndex].getElement() != value) {
+            array[newIndex].setElement(value);
+            array[newIndex].setKey(index);
         }
         if (maxI < i) {
             maxI = i;
         }
     }
 
-    public NodeForQuadtaric search(int key) {
-        if (key < array.length)
-            return array[key];
-        return null;
+    public int search(int value) {
+
+        int i = 1;
+        int index = doHash(value);
+        int newIndex = index;
+        while (array[newIndex].getElement() != -1 && array[newIndex].getElement() != value) {
+            newIndex = (index + i * i) % Main.size;
+            i++;
+        }
+        if (array[newIndex].getElement() != value) {
+            return newIndex;
+        }
+        return -1;
     }
 
     public void display() {
