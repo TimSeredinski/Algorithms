@@ -37,4 +37,5 @@ public class HashTable {
     public int doHash(int value) {
         return (int) (value % 829 * A % 1 * array.length);
     }
+
 }

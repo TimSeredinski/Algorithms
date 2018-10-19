@@ -23,7 +23,7 @@ public class ChainOfCollisions {
     }
 
     private Node search(Node node, int value) {
-        if(node == null){
+        if (node == null) {
             return null;
         }
         if (node.getElement() == value) {

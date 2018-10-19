@@ -26,7 +26,6 @@ public class Quadratic {
     private void insert(int value) {
         int i = 1, a = value;
         int index = doHash(value, i);
-
         while (array[index].getElement() != 0) {
             i++;
             index = doHash(a, i);
@@ -36,8 +35,20 @@ public class Quadratic {
             array[index].setElement(value);
             array[index].setKey(index);
         }
-        if(maxI < i){
+        if (maxI < i) {
             maxI = i;
+        }
+    }
+
+    public NodeForQuadtaric search(int key) {
+        if (key < array.length)
+            return array[key];
+        return null;
+    }
+
+    public void display() {
+        for (NodeForQuadtaric arr : array) {
+            System.out.print(arr.getElement() + " ");
         }
     }
 

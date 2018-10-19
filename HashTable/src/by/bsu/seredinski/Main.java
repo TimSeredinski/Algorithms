@@ -30,7 +30,7 @@ public class Main {
             if (max < Quadratic.maxI) {
                 max = Quadratic.maxI;
             }
-            System.out.println((i+1) + "-й массив: maxI = " + Quadratic.maxI);
+            System.out.println((i + 1) + "-й массив: maxI = " + Quadratic.maxI);
         }
         System.out.println("Максимальный maxI по всем массивам:  " + max);
     }
