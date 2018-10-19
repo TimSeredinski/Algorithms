@@ -9,6 +9,7 @@ public class Main {
         for (double a : A) {
             findAvgCountOfCollisions(array, a);
         }
+        findMaxCountOfIteration(array);
     }
 
     private static void findAvgCountOfCollisions(int array[][], double A) {
@@ -19,5 +20,18 @@ public class Main {
             countOfCollisions += hashTable.maxChainLength();
         }
         System.out.println("A = " + A + ", avgCountOfCollisions = " + countOfCollisions / 50);
+    }
+
+    private static void findMaxCountOfIteration(int array[][]) {
+        int max = 0;
+        for (int i = 0; i < 50; i++) {
+            Quadratic hashTable = new Quadratic(1024);
+            hashTable.insert(array[i]);
+            if (max < Quadratic.maxI) {
+                max = Quadratic.maxI;
+            }
+            System.out.println((i+1) + "-й массив: maxI = " + Quadratic.maxI);
+        }
+        System.out.println("Максимальный maxI по всем массивам:  " + max);
     }
 }
