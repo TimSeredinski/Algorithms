@@ -45,6 +45,7 @@ public class Main {
                     graph.addEdge(1, 2);
                     graph.addEdge(0, 1);
                     graph.addEdge(1, 3);
+                    break;
                 }
                 default:
                     System.out.println("Choose from the list\n");
@@ -53,7 +54,7 @@ public class Main {
         }
     }
 
-    private static int doInput() {
+    private static int doInput() throws InputMismatchException{
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {

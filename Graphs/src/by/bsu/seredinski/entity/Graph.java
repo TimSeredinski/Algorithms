@@ -20,17 +20,18 @@ public class Graph {
         changeSizeOfConnectedVertices(connectedVertices);
     }
 
-    public void deleteVertex(int vertex) throws IndexOutOfBoundsException {
+    public void deleteVertex(int vertex) throws IndexOutOfBoundsException{
         try {
-            for (int i = 0; i < connectedVertices[vertex].size(); i++) {
-                deleteEdge(vertex, connectedVertices[vertex].get(i));
+            for (int i = connectedVertices[vertex].size(); i > 0; i--) {
+                System.out.println(connectedVertices[vertex].get(i-1));
+                deleteEdge(vertex, connectedVertices[vertex].get(i-1));
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Vertex is not found");
         }
     }
 
-    public void deleteEdge(int first, int second) throws IndexOutOfBoundsException {
+    public void deleteEdge(int first, int second) throws IndexOutOfBoundsException{
         try {
             connectedVertices[first].remove(connectedVertices[first].indexOf(second));
             connectedVertices[second].remove(connectedVertices[second].indexOf(first));
@@ -59,7 +60,7 @@ public class Graph {
             System.out.println("Graph is empty");
             return;
         }
-        for (int i = 0; i <= numberOfVertices - 1; i++) {
+        for (int i = 0; i < numberOfVertices; i++) {
             System.out.print("Vertex " + (i + 1));
             for (int j = 0; j < connectedVertices[i].size(); j++) {
                 System.out.print("->" + (connectedVertices[i].get(j) + 1));
