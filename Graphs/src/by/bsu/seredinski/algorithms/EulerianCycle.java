@@ -27,10 +27,9 @@ public class EulerianCycle {
             int vertex = stack.peek();
             if (copyOfGraph.getConnectedVertices()[vertex].size() > 0) {
                 stack.push(copyOfGraph.getConnectedVertices()[vertex].getFirst());
-                copyOfGraph.getConnectedVertices()[vertex].pollFirst();
-            }
-            else {
-                queue.add(stack.pop());
+                copyOfGraph.deleteEdge(vertex, copyOfGraph.getConnectedVertices()[vertex].getFirst());
+            } else {
+                queue.add(stack.pop() + 1);
             }
         }
         return queue;
