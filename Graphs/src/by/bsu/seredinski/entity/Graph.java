@@ -7,6 +7,15 @@ public class Graph {
     private int numberOfVertices;
     private LinkedList<Integer>[] connectedVertices;
 
+    public int getNumberOfVertices() {
+        return numberOfVertices;
+    }
+
+    public LinkedList<Integer>[] getConnectedVertices() {
+        return connectedVertices;
+    }
+
+
     public Graph() {
         numberOfVertices = 0;
         connectedVertices = new LinkedList[numberOfVertices];
@@ -23,7 +32,6 @@ public class Graph {
     public void deleteVertex(int vertex) throws IndexOutOfBoundsException{
         try {
             for (int i = connectedVertices[vertex].size(); i > 0; i--) {
-                System.out.println(connectedVertices[vertex].get(i-1));
                 deleteEdge(vertex, connectedVertices[vertex].get(i-1));
             }
         } catch (IndexOutOfBoundsException e) {
