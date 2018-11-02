@@ -15,9 +15,10 @@ public class Main {
         Graph graph = new Graph();
         int enter = 1;
         while (enter != 0) {
-            System.out.println("1)Print graph\n2)Add vertex\n3)Add edge\n" +
+            System.out.println("0)If you finished\n1)Print graph\n2)Add vertex\n3)Add edge\n" +
                     "4)Delete vertex\n5)Delete edge\n6)Example\n" +
-                    "7)Build eulerian cycle\n8)Do BFS and print levels\n0 if you finished\n");
+                    "7)Build eulerian cycle\n8)Do BFS and print levels\n" +
+                    "9)Delete all\n");
             enter = doInput();
             switch (enter) {
                 case 0:
@@ -57,6 +58,9 @@ public class Main {
                     break;
                 case 8:
                     doBFS(graph);
+                    break;
+                case 9:
+                    graph = new Graph();
                     break;
                 default:
                     System.out.println("Choose from the list\n");

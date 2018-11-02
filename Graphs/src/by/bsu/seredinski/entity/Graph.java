@@ -2,7 +2,7 @@ package by.bsu.seredinski.entity;
 
 import java.util.LinkedList;
 
-public class Graph implements Cloneable{
+public class Graph {
 
     private int numberOfVertices;
     private LinkedList<Integer>[] connectedVertices;
@@ -18,13 +18,6 @@ public class Graph implements Cloneable{
 
     public void setLevel(int index, int level) {
         this.level[index] = level;
-    }
-
-    public Graph clone() throws CloneNotSupportedException{
-        Graph clonedObj = (Graph) super.clone();
-        clonedObj.numberOfVertices = this.numberOfVertices;
-        clonedObj.connectedVertices = this.connectedVertices.clone();
-        return clonedObj;
     }
 
     public LinkedList<Integer>[] getConnectedVertices() {

@@ -16,8 +16,6 @@ public class EulerianCycle {
             }
         }
         System.out.println("Starting build cycle...");
-
-        Graph copyOfGraph = graph;
         Stack<Integer> stack = new Stack<>();
         Queue<Integer> queue = new ArrayDeque<>();
 
@@ -25,9 +23,9 @@ public class EulerianCycle {
         while (!stack.isEmpty()) {
             System.out.println(stack);
             int vertex = stack.peek();
-            if (copyOfGraph.getConnectedVertices()[vertex].size() > 0) {
-                stack.push(copyOfGraph.getConnectedVertices()[vertex].getFirst());
-                copyOfGraph.deleteEdge(vertex, copyOfGraph.getConnectedVertices()[vertex].getFirst());
+            if (graph.getConnectedVertices()[vertex].size() > 0) {
+                stack.push(graph.getConnectedVertices()[vertex].getFirst());
+                graph.deleteEdge(vertex, graph.getConnectedVertices()[vertex].getFirst());
             } else {
                 queue.add(stack.pop() + 1);
             }
