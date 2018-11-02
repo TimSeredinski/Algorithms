@@ -9,8 +9,9 @@ public class BFS {
 
     private static void setLevelsToTheVertices(Graph graph) {
         Queue<Integer> queue = new ArrayDeque<>();
-        queue.add(0);
-        graph.setLevel(0, 0);
+        int vertex = 0;
+        queue.add(vertex);
+        graph.setLevel(vertex, 0);
 
         for (int i = 1; i < graph.getNumberOfVertices(); i++) {
             graph.setLevel(i, -1);
@@ -18,14 +19,13 @@ public class BFS {
 
         while (!queue.isEmpty()) {
             System.out.println(queue);
-            int vertex = ((ArrayDeque<Integer>) queue).pop();
+            vertex = ((ArrayDeque<Integer>) queue).pop();
             for (int i = 0; i < graph.getConnectedVertices()[vertex].size(); i++) {
                 if (graph.getLevel(graph.getConnectedVertices()[vertex].get(i)) == -1) {
                     queue.add(graph.getConnectedVertices()[vertex].get(i));
-                    graph.setLevel(graph.getConnectedVertices()[vertex].get(i), vertex + 1);
+                    graph.setLevel(graph.getConnectedVertices()[vertex].get(i), graph.getLevel(vertex) + 1);
                 }
             }
-            ((ArrayDeque<Integer>) queue).removeFirst();
         }
     }
 
