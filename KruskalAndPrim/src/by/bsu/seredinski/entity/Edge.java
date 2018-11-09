@@ -20,12 +20,14 @@ public class Edge {
         return secondVertex;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
-        return "Edge{" +
-                "(" + (firstVertex + 1) +
+        return "(" + (firstVertex + 1) +
                 "," + (secondVertex + 1) +
-                ") = " + weight +
-                '}';
+                ") = " + weight;
     }
 }

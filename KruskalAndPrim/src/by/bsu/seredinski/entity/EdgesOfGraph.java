@@ -21,6 +21,10 @@ public class EdgesOfGraph {
             edges.remove(edge);
     }
 
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
     public void setEdgesOfGraph(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = i + 1; j < matrix.length; j++) {
@@ -30,14 +34,8 @@ public class EdgesOfGraph {
         }
     }
 
-    public List<Edge> getEdges() {
-        return edges;
-    }
-
     @Override
     public String toString() {
-        return "EdgesOfGraph{"
-                + edges +
-                '}';
+        return "Minimal spanning tree: " + edges;
     }
 }

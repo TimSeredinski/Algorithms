@@ -14,9 +14,10 @@ public class Graph {
     }
 
     public Graph(int number) {
-        matrixOfIncidence = new int[number][number];
-        for (int i = 0; i < number; i++) {
-            for (int j = 0; j < number; j++) {
+        numberOfVertices = number;
+        matrixOfIncidence = new int[numberOfVertices][numberOfVertices];
+        for (int i = 0; i < numberOfVertices; i++) {
+            for (int j = 0; j < numberOfVertices; j++) {
                 matrixOfIncidence[i][j] = 0;
             }
         }

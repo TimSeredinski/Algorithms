@@ -1,9 +1,11 @@
 package by.bsu.seredinski;
 
 import by.bsu.seredinski.algorithms.Kruskal;
+import by.bsu.seredinski.entity.Edge;
 import by.bsu.seredinski.entity.EdgesOfGraph;
 import by.bsu.seredinski.entity.Graph;
 
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -50,7 +52,8 @@ public class Main {
                     break;
                 }
                 case 7: {
-                    Kruskal.doKruskal(graph);
+                    System.out.println(Kruskal.doKruskal(graph));
+                    break;
                 }
                 default:
                     System.out.println("Choose from the list\n");
