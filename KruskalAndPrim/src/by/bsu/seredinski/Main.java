@@ -1,23 +1,23 @@
 package by.bsu.seredinski;
 
 import by.bsu.seredinski.algorithms.Kruskal;
-import by.bsu.seredinski.entity.Edge;
+import by.bsu.seredinski.algorithms.Prim;
 import by.bsu.seredinski.entity.EdgesOfGraph;
 import by.bsu.seredinski.entity.Graph;
 
-import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = new Graph(5);
+        Graph graph = new Graph(7);
         EdgesOfGraph edges = new EdgesOfGraph();
         int enter = 1;
         while (enter != 0) {
             System.out.println("1)Print graph\n2)Add vertex\n3)Add edge\n" +
-                    "4)Delete vertex\n5)Delete edge\n6)Example\n7)Kruskal\n0)If you finished\n");
+                    "4)Delete vertex\n5)Delete edge\n6)Example\n7)Kruskal\n" +
+                    "8)Prim\n0)If you finished\n");
             enter = doInput();
             switch (enter) {
                 case 0:
@@ -44,15 +44,25 @@ public class Main {
                     graph.deleteEdge(doInput() - 1, doInput() - 1);
                     break;
                 case 6: {
-                    graph.addEdge(1, 2, 4);
-                    graph.addEdge(1, 3, 2);
-                    graph.addEdge(2, 4, 1);
-                    graph.addEdge(3, 4, 2);
-                    graph.addEdge(4, 5, 5);
+                    graph.addEdge(1, 2, 1);
+                    graph.addEdge(1, 7, 1);
+                    graph.addEdge(2, 5, 2);
+                    graph.addEdge(2, 7, 1);
+                    graph.addEdge(3, 4, 3);
+                    graph.addEdge(3, 7, 5);
+                    graph.addEdge(4, 6, 4);
+                    graph.addEdge(5, 6, 2);
+                    graph.addEdge(5, 7, 2);
+                    graph.addEdge(6, 7, 2);
                     break;
                 }
                 case 7: {
                     System.out.println(Kruskal.doKruskal(graph));
+                    break;
+                }
+                case 8: {
+                    Prim prim = new Prim();
+                    System.out.println(prim.doPrim(graph));
                     break;
                 }
                 default:

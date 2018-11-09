@@ -6,6 +6,9 @@ public class Edge {
     private int secondVertex;
     private int weight;
 
+    public Edge() {
+    }
+
     public Edge(int firstVertex, int secondVertex, int weight) {
         this.firstVertex = firstVertex;
         this.secondVertex = secondVertex;
@@ -16,12 +19,24 @@ public class Edge {
         return firstVertex;
     }
 
+    public void setFirstVertex(int firstVertex) {
+        this.firstVertex = firstVertex;
+    }
+
     public int getSecondVertex() {
         return secondVertex;
     }
 
+    public void setSecondVertex(int secondVertex) {
+        this.secondVertex = secondVertex;
+    }
+
     public int getWeight() {
         return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     @Override

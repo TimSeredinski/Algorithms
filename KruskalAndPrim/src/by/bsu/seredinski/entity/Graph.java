@@ -61,12 +61,8 @@ public class Graph {
         try {
             first--;
             second--;
-            if (first > second) {
-                matrixOfIncidence[first][second] = weight;
-            }
-            else {
-                matrixOfIncidence[second][first] = weight;
-            }
+            matrixOfIncidence[first][second] = weight;
+            matrixOfIncidence[second][first] = weight;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("One or both vertices are not found");
         }
@@ -75,7 +71,7 @@ public class Graph {
     public void print() {
         for (int i = 0; i < matrixOfIncidence.length; i++) {
             for (int j = 0; j < matrixOfIncidence.length; j++) {
-                System.out.print(matrixOfIncidence[j][i] + " ");
+                System.out.print(matrixOfIncidence[i][j] + " ");
             }
             System.out.println();
         }
