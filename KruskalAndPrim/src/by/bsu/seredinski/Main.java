@@ -1,5 +1,6 @@
 package by.bsu.seredinski;
 
+import by.bsu.seredinski.algorithms.Kruskal;
 import by.bsu.seredinski.entity.EdgesOfGraph;
 import by.bsu.seredinski.entity.Graph;
 
@@ -14,7 +15,7 @@ public class Main {
         int enter = 1;
         while (enter != 0) {
             System.out.println("1)Print graph\n2)Add vertex\n3)Add edge\n" +
-                    "4)Delete vertex\n5)Delete edge\n6)Example\n0)If you finished\n");
+                    "4)Delete vertex\n5)Delete edge\n6)Example\n7)Kruskal\n0)If you finished\n");
             enter = doInput();
             switch (enter) {
                 case 0:
@@ -47,6 +48,9 @@ public class Main {
                     graph.addEdge(3, 4, 2);
                     graph.addEdge(4, 5, 5);
                     break;
+                }
+                case 7: {
+                    Kruskal.doKruskal(graph);
                 }
                 default:
                     System.out.println("Choose from the list\n");

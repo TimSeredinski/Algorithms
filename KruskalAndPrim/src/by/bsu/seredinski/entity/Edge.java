@@ -12,6 +12,14 @@ public class Edge {
         this.weight = weight;
     }
 
+    public int getFirstVertex() {
+        return firstVertex;
+    }
+
+    public int getSecondVertex() {
+        return secondVertex;
+    }
+
     @Override
     public String toString() {
         return "Edge{" +
