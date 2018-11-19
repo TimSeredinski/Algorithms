@@ -1,5 +1,6 @@
 package by.bsu.seredinski.entity;
 
+// refactor methods to add and remove vertices
 public class Graph {
 
     private int numberOfVertices;

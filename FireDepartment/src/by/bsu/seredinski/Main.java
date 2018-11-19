@@ -1,8 +1,5 @@
 package by.bsu.seredinski;
 
-//import by.bsu.seredinski.algorithms.Kruskal;
-//import by.bsu.seredinski.algorithms.Prim;
-//import by.bsu.seredinski.entity.EdgesOfGraph;
 import by.bsu.seredinski.algorithms.Dijkstra;
 import by.bsu.seredinski.entity.Graph;
 
@@ -14,20 +11,17 @@ public class Main {
 
     public static void main(String[] args) {
         Graph graph = new Graph(7);
-        //EdgesOfGraph edges = new EdgesOfGraph();
         int enter = 1;
         while (enter != 0) {
             System.out.println("1)Print graph\n2)Add vertex\n3)Add edge\n" +
-                    "4)Delete vertex\n5)Delete edge\n6)Example\n7)Kruskal\n" +
-                    "8)Prim\n0)If you finished\n");
+                    "4)Delete vertex\n5)Delete edge\n6)Example\n" +
+                    "7)Fire department\n0)If you finished\n");
             enter = doInput();
             switch (enter) {
                 case 0:
                     break;
                 case 1:
                     graph.print();
-                    //edges.setEdgesOfGraph(graph.getMatrixOfIncidence());
-                    //System.out.println(edges);
                     break;
                 case 2:
                     System.out.println("Enter amount of vertices");
@@ -58,10 +52,6 @@ public class Main {
                     break;
                 }
                 case 7: {
-                    //System.out.println(Kruskal.doKruskal(graph));
-                    break;
-                }
-                case 8: {
                     Dijkstra dijkstra = new Dijkstra();
                     System.out.println(Arrays.toString(dijkstra.findMinArrayOfDistances(graph)));
                     break;

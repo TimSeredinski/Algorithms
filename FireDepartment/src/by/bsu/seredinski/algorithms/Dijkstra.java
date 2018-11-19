@@ -43,23 +43,38 @@ public class Dijkstra {
         for (int i = 0; i < graph.getNumberOfVertices(); i++) {
             array = doDijkstra(graph, i);
             System.out.println(Arrays.toString(array));
-            if(minElement > getMaxElement(array)){
-                minElement = getMaxElement(array);
+            int lengthOfMaxElement = getMaxElement(array);
+            if (minElement > lengthOfMaxElement) {
+                minElement = lengthOfMaxElement;
                 System.arraycopy(array, 0, arrayWithMinLongestWay, 0, array.length);
             }
+            else if(minElement == lengthOfMaxElement){
+                if(getLengthOfAllWays(arrayWithMinLongestWay) > getLengthOfAllWays(array)){
+                    System.arraycopy(array, 0, arrayWithMinLongestWay, 0, array.length);
+                }
+            }
         }
+        // refactor make sout beautiful
         System.out.println(getMaxElement(arrayWithMinLongestWay));
         return arrayWithMinLongestWay;
     }
 
-    private int getMaxElement(int[] arr) {
+    private int getMaxElement(int[] array) {
         int max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (max < arr[i]) {
-                max = arr[i];
+        for (int arr : array) {
+            if (max < arr) {
+                max = arr;
             }
         }
         return max;
+    }
+
+    private int getLengthOfAllWays(int[] array) {
+        int length = 0;
+        for (int arr : array) {
+            length += arr;
+        }
+        return length;
     }
 
 }
