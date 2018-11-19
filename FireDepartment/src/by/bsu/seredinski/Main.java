@@ -51,7 +51,6 @@ public class Main {
                     graph.addEdge(2, 5, 2);
                     graph.addEdge(2, 7, 1);
                     graph.addEdge(3, 4, 3);
-                    graph.addEdge(3, 7, 5);
                     graph.addEdge(4, 6, 4);
                     graph.addEdge(5, 6, 2);
                     graph.addEdge(5, 7, 2);
@@ -64,7 +63,7 @@ public class Main {
                 }
                 case 8: {
                     Dijkstra dijkstra = new Dijkstra();
-                    System.out.println(Arrays.toString(dijkstra.doDijkstra(graph)));
+                    System.out.println(Arrays.toString(dijkstra.findMinArrayOfDistances(graph)));
                     break;
                 }
                 default:
