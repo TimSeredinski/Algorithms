@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = new Graph(7);
+        Graph graph = new Graph(0);
         int enter = 1;
         while (enter != 0) {
             System.out.println("1)Print graph\n2)Add vertex\n3)Add edge\n" +

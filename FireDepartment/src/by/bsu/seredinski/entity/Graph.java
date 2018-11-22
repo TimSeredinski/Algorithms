@@ -14,6 +14,10 @@ public class Graph {
         return matrixOfIncidence;
     }
 
+    public void setMatrixOfIncidence(int[][] matrixOfIncidence) {
+        this.matrixOfIncidence = matrixOfIncidence;
+    }
+
     public Graph(int number) {
         numberOfVertices = number;
         matrixOfIncidence = new int[numberOfVertices][numberOfVertices];
@@ -27,8 +31,18 @@ public class Graph {
     public void addVertices(int amount) {
         for (int i = amount; i > 0; i--) {
             numberOfVertices++;
-            changeSizeOfConnectedVertices(matrixOfIncidence);
         }
+        int[][] newMatrixOfIncidence = new int[numberOfVertices][numberOfVertices];
+        for (int i = 0; i < numberOfVertices; i++) {
+            for (int j = 0; j < numberOfVertices; j++) {
+                if (i >= matrixOfIncidence.length || j >= matrixOfIncidence.length) {
+                    newMatrixOfIncidence[i][j] = 0;
+                } else {
+                    newMatrixOfIncidence[i][j] = matrixOfIncidence[i][j];
+                }
+            }
+        }
+        setMatrixOfIncidence(newMatrixOfIncidence);
     }
 
     public void deleteVertex(int vertex, int[][] previousMatrix) throws IndexOutOfBoundsException {
@@ -45,16 +59,6 @@ public class Graph {
             matrixOfIncidence[first][second] = 0;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Edge is not found");
-        }
-    }
-
-    private void changeSizeOfConnectedVertices(int[][] previousMatrix) {
-        matrixOfIncidence = new int[numberOfVertices][numberOfVertices];
-        System.arraycopy(previousMatrix, 0, matrixOfIncidence, 0, numberOfVertices - 1);
-        matrixOfIncidence[numberOfVertices - 1] = new int[numberOfVertices];
-        for (int i = 0; i < numberOfVertices; i++) {
-            matrixOfIncidence[numberOfVertices - 1][i] = -1;
-            matrixOfIncidence[i][numberOfVertices - 1] = -1;
         }
     }
 
