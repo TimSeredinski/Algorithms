@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = new Graph(7);
+        Graph graph = new Graph(0);
         EdgesOfGraph edges = new EdgesOfGraph();
         int enter = 1;
         while (enter != 0) {
