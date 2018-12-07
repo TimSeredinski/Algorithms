@@ -3,7 +3,6 @@ package by.bsu.seredinski.algorithm;
 import by.bsu.seredinski.entity.Graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DFS {
@@ -22,7 +21,7 @@ public class DFS {
         this.articulationPoints = new ArrayList<>();
     }
 
-    public void findCutVertices(Graph graph) {
+    public void findCutVertices() {
         for (boolean v : usedVertices) {
             v = false;
         }
@@ -40,7 +39,7 @@ public class DFS {
             if (usedVertices[u]) {
                 meetDFS[vertex] = Math.min(meetDFS[vertex], startDFS[u]);
             } else {
-                dfs(u, vertex,level);
+                dfs(u, vertex, level);
                 meetDFS[vertex] = Math.min(meetDFS[vertex], meetDFS[u]);
                 count++;
                 if (parent != -1 && meetDFS[u] >= startDFS[vertex] && !articulationPoints.contains(vertex)) {

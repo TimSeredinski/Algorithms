@@ -78,7 +78,7 @@ public class Graph {
     public List<Integer> getConnectedVertices(int vertex) {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < numberOfVertices; i++) {
-            if(matrixOfIncidence[vertex][i] != 0){
+            if (matrixOfIncidence[vertex][i] != 0) {
                 result.add(i);
             }
         }

@@ -55,7 +55,7 @@ public class Main {
                 }
                 case 7: {
                     DFS dfs = new DFS(graph);
-                    dfs.findCutVertices(graph);
+                    dfs.findCutVertices();
                     System.out.println(dfs.getArticulationPoints());
                     break;
                 }
