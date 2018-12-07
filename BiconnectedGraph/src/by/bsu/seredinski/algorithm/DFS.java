@@ -22,9 +22,6 @@ public class DFS {
     }
 
     public void findCutVertices() {
-        for (boolean v : usedVertices) {
-            v = false;
-        }
         dfs(0, -1, 0);
     }
 
