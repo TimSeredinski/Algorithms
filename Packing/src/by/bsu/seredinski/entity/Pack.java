@@ -23,4 +23,12 @@ public class Pack {
     public List<Thing> getThings() {
         return things;
     }
+
+    @Override
+    public String toString() {
+        return "Pack{" +
+                "capacity=" + capacity +
+                ", things=" + things +
+                '}';
+    }
 }

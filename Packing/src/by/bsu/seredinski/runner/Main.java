@@ -18,10 +18,14 @@ public class Main {
         for (Thing thing : things) {
             algorithm.wrapUp(packages, thing);
         }
-
+        printPackages(packages);
     }
 
-    private void printPackages(Queue<Pack> packages){
-
+    private static void printPackages(Queue<Pack> packages) {
+        int i = 0;
+        for (Pack pack : packages) {
+            System.out.print(i++ + ". ");
+            System.out.println(pack.toString());
+        }
     }
 }
