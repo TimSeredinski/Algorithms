@@ -1,7 +1,6 @@
 package by.bsu.seredinski.creator;
 
 import by.bsu.seredinski.entity.Thing;
-
 import java.util.ArrayList;
 import java.util.List;
 

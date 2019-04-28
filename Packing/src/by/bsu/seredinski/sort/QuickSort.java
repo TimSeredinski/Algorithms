@@ -1,7 +1,6 @@
 package by.bsu.seredinski.sort;
 
 import by.bsu.seredinski.entity.Thing;
-
 import java.util.List;
 
 public class QuickSort {
