@@ -5,7 +5,7 @@ import by.bsu.seredinski.entity.Thing;
 
 import java.util.Deque;
 
-public class SuitableWithSort {
+public class FirstSuitable {
     private int numberOfPackages;
 
     public void wrapUp(Deque<Pack> packages, Thing thing) {

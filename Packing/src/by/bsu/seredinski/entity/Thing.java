@@ -13,7 +13,7 @@ public class Thing {
         this.number = number;
     }
 
-    public Thing(Thing thing){
+    public Thing(Thing thing) {
         this.weight = thing.getWeight();
         this.number = thing.getNumber();
     }

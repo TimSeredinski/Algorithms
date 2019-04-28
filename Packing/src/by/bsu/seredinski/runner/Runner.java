@@ -1,6 +1,6 @@
 package by.bsu.seredinski.runner;
 
-import by.bsu.seredinski.algorithm.SuitableWithSort;
+import by.bsu.seredinski.algorithm.FirstSuitable;
 import by.bsu.seredinski.creator.CreatorOfThings;
 import by.bsu.seredinski.entity.Pack;
 import by.bsu.seredinski.entity.Thing;
@@ -33,7 +33,7 @@ public class Runner {
         Collections.reverse(things);
         System.out.println(Arrays.toString(things.toArray()));
         Deque<Pack> packages = new LinkedList<>();
-        SuitableWithSort algorithm = new SuitableWithSort();
+        FirstSuitable algorithm = new FirstSuitable();
         for (Thing thing : things) {
             algorithm.wrapUp(packages, thing);
         }
@@ -49,10 +49,10 @@ public class Runner {
             System.out.println("Enter 'a' end 'b' where (a/b) = weight of thing num-" + i + ": ");
             double a = scanner.nextInt();
             double b = scanner.nextInt();
-            things.add(new Thing(a/b, i));
+            things.add(new Thing(a / b, i));
         }
         Deque<Pack> packages = new LinkedList<>();
-        SuitableWithSort algorithm = new SuitableWithSort();
+        FirstSuitable algorithm = new FirstSuitable();
         for (Thing thing : things) {
             algorithm.wrapUp(packages, thing);
         }
